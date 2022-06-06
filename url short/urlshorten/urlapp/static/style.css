@@ -1,0 +1,55 @@
+*{
+  padding: 0;
+  margin:0;
+  box-sizing:border-box;
+}
+
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  flex-direction:column;
+  background-image: url("https://cdn.wallpapersafari.com/42/30/Mgt32S.jpg");
+}
+
+
+header{
+  margin-bottom:50px;
+  font-family:cursive;
+  color:white;
+}
+
+form input {
+  display:block;
+  margin:40px;
+}
+
+.change{
+  padding:10px;
+  width:500px;
+  border-radius:5px;
+  font-size:15px;
+}
+
+input[name = "urlcopy"]{
+  padding:10px;
+  width:300px;
+  transform: translateX(100px);
+  border-radius:5px;
+  font-size:15px;
+}
+
+input[type= "submit"]{
+  transform: translateX(200px);
+  padding:10px;
+  border-radius:5px;
+  border:none;
+  background-color:#39A388;
+}
+input[type= "submit"]:hover{
+  background-color:#22577A;
+  transition:0.7s;
+  color:white;
+  box-shadow:5px 5px 10px rgba(0, 0, 0, 1.0);
+}

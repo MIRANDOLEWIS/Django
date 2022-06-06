@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% load static %}
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <title>Url Shorten</title>
+  </head>
+  <body>
+
+
+
+    <header>
+      <h1>Url Shorten</h1>
+    </header>
+
+    <form id="postform">
+      {% csrf_token %}
+      <input type="text" name="link" id="link" class="change"  placeholder="Paste the url" required>
+      <input type="submit" id="shorten" name="submit" value="Submit">
+      
+    </form>
+    <h3 id="getlink" class="chg">Get the link</h3>
+
+    <script type="text/javascript">
+      
+      const getlink = document.getElementById("getlink")
+
+      $(document).on("submit","#postform",function(e){
+        e.preventDefault();
+        
+        $.ajax({
+          type:"POST",
+          url : "/create",
+          data : {
+            link:$("#link").val(),
+            csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val(),
+          },
+          success:function(data){
+            $('h3').html("localhost:8000/"+data)
+          }
+        })
+      })
+    </script>
+    
+  </body>
+</html>
